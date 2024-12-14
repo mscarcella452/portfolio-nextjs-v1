@@ -33,6 +33,16 @@ export default {
           light: "#ff49db",
         },
       },
+      container: {
+        center: true, // Centers the container by default
+        padding: "2rem", // Adds padding inside the container
+        screens: {
+          sm: "100%", // 100% width for small screens
+          md: "768px", // Medium screen max-width
+          lg: "1024px", // Large screen max-width
+          xl: "1280px", // Extra large screen max-width
+        },
+      },
     },
   },
   plugins: [],
