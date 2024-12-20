@@ -1,9 +1,15 @@
 import React from "react";
-import AboutPage from "@/app/about/page";
-interface Props {}
+import styles from "@styles/components/button.module.css";
 
-const PricingPage = ({}: Props) => {
-  return <div>PricingPage</div>;
+type ButtonProps = {
+  children?: string;
+  ariaLabel?: string; // The button label and aria-label
+  className?: string;
+  onClick?: () => void;
 };
 
-export default PricingPage;
+function Button({ onClick, ariaLabel, className, children }: ButtonProps) {
+  return <button className='btn'>{children}</button>;
+}
+
+export default Button;

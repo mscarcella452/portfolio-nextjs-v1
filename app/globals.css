@@ -3,6 +3,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  * {
+    @apply box-border;
+  }
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;

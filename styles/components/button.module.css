@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .btn {
+    @apply px-4 py-2 rounded-custom transition bg-[red];
+  }
+
+  .btn-primary {
+    @apply btn bg-[red] text-white px-4 py-2 hover:bg-blue-600 bg-[red];
+  }
+  .btn-secondary {
+    @apply btn bg-secondary-main text-white px-4 py-2 hover:bg-gray-800;
+  }
+}

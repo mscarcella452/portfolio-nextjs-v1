@@ -33,6 +33,11 @@ export default {
           light: "#ff49db",
         },
       },
+
+      spacing: {
+        navbarHeight: "60px",
+        navmenuHeight: "100vh",
+      },
       container: {
         center: true, // Centers the container by default
         padding: "2rem", // Adds padding inside the container
