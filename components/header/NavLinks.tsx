@@ -8,15 +8,17 @@ type LinkColorProp = `text-${string}`;
 type NavLinksProps = {
   containerClassName?: string;
   linkClassName?: string;
-  hoverColor?: LinkColorProp;
   activeColor?: LinkColorProp;
+  textColor?: LinkColorProp;
+  hoverColor?: LinkColorProp;
   handleLinkClick?: () => void;
 };
 
 function NavLinks({
   containerClassName,
   linkClassName,
-  hoverColor = "text-[teal]",
+  textColor = "text-primary-main",
+  hoverColor = "text-[red]",
   activeColor = "text-[white]",
   handleLinkClick,
 }: NavLinksProps) {
@@ -26,14 +28,15 @@ function NavLinks({
     <ul className={containerClassName}>
       {navLinks.map(({ label, href }, index) => {
         const activePage = currentRoute === href;
+
         return (
           <li key={index}>
             <Link
               href={href}
               className={clsx(
+                "transition-colors duration-300",
                 linkClassName,
-                activePage && activeColor,
-                `hover:${hoverColor}`
+                activePage ? activeColor : `${textColor} hover:${hoverColor}`
               )}
               aria-label={`Go to ${label} page`}
               aria-current={activePage ? "page" : undefined}
