@@ -21,7 +21,9 @@ const Navbar = ({ isOpen, handleToggleMenu }: NavbarProps) => {
       />
       <div className='hidden lg:flex items-center space-x-8'>
         <NavLinks containerClassName='flex space-x-8' />
-        <Button className='btn-primary bg-[teal]'>Hire Me</Button>
+        <Button as='link' href='/contact' variant='primary'>
+          Hire Me
+        </Button>
       </div>
     </nav>
   );

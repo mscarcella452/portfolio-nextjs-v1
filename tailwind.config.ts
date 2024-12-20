@@ -32,6 +32,11 @@ export default {
           dark: "#ff7849",
           light: "#ff49db",
         },
+        secondary: {
+          main: "#8492a6",
+          dark: "#273444",
+          light: "#ffc82c",
+        },
       },
 
       spacing: {

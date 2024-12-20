@@ -16,7 +16,7 @@ type NavLinksProps = {
 function NavLinks({
   containerClassName,
   linkClassName,
-  hoverColor = "text-[green]",
+  hoverColor = "text-[teal]",
   activeColor = "text-[white]",
   handleLinkClick,
 }: NavLinksProps) {
