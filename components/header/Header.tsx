@@ -1,9 +1,10 @@
 "use client";
-import { useCallback, useState } from "react";
+import { useCallback, useState, useEffect } from "react";
 import styles from "@styles/components/header.module.css";
 import clsx from "clsx";
 import tailwindConfig from "../../tailwind.config";
 import resolveConfig from "tailwindcss/resolveConfig";
+import { usePathname } from "next/navigation";
 
 import SiteHeader from "@/components/header/SiteHeader";
 import Link from "next/link";
@@ -21,20 +22,17 @@ interface Props {}
 
 const Header = ({}: Props) => {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname(); // Get the current pathname
 
-  // const toggleMenu = () => setMenuOpen(prev => !prev);
-  // const closeMenu = () => menuOpen && setMenuOpen(false);
   // Memoize the toggleMenu function with useCallback
   const handleToggleMenu = useCallback(() => {
     setMenuOpen(prev => !prev);
   }, []);
 
-  // Memoize the closeMenu function with useCallback
-  const handleCloseMenu = useCallback(() => {
-    if (menuOpen) {
-      setMenuOpen(false);
-    }
-  }, [menuOpen]); // Close menu only if it's open
+  // Close the menu when the pathname changes
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   const headerHeight = {
     "h-navmenuHeight lg:h-navbarHeight": menuOpen,
@@ -44,11 +42,10 @@ const Header = ({}: Props) => {
   return (
     <header className={clsx(styles.header, headerHeight)}>
       <div className={styles.navbarWrapper}>
-        <SiteHeader onClick={handleCloseMenu} />
+        <SiteHeader />
         <Navbar isOpen={menuOpen} handleToggleMenu={handleToggleMenu} />
       </div>
-
-      <NavMenu handleCloseMenu={handleCloseMenu} />
+      <NavMenu />
     </header>
   );
 };

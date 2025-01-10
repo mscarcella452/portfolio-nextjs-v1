@@ -1,16 +1,16 @@
 import styles from "@styles/components/header.module.css";
 import NavLinks from "./NavLinks";
 
-type NavMenuProps = {
-  handleCloseMenu: () => void;
-};
+// type NavMenuProps = {
+//   handleCloseMenu: () => void;
+// };
 
-function NavMenu({ handleCloseMenu }: NavMenuProps) {
+function NavMenu() {
   return (
     <div className={styles.navmenuWrapper}>
       <NavLinks
         containerClassName='flex flex-col gap-2 items-center align-center'
-        handleLinkClick={handleCloseMenu}
+        // handleClick={handleCloseMenu}
       />
     </div>
   );

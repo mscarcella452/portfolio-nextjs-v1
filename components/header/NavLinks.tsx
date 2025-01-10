@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { navLinks } from "@/config/siteConfig";
 import { usePathname } from "next/navigation";
@@ -11,7 +12,6 @@ type NavLinksProps = {
   activeColor?: LinkColorProp;
   textColor?: LinkColorProp;
   hoverColor?: LinkColorProp;
-  handleLinkClick?: () => void;
 };
 
 function NavLinks({
@@ -20,7 +20,6 @@ function NavLinks({
   textColor = "text-primary-main",
   hoverColor = "text-[red]",
   activeColor = "text-[white]",
-  handleLinkClick,
 }: NavLinksProps) {
   const currentRoute = usePathname();
 
@@ -33,14 +32,13 @@ function NavLinks({
           <li key={index}>
             <Link
               href={href}
-              className={clsx(
-                "transition-colors duration-300",
-                linkClassName,
-                activePage ? activeColor : `${textColor} hover:${hoverColor}`
-              )}
+              className={clsx("transition-colors duration-300", linkClassName, {
+                [activeColor]: activePage,
+                [textColor]: !activePage,
+                [`hover:${hoverColor}`]: !activePage,
+              })}
               aria-label={`Go to ${label} page`}
               aria-current={activePage ? "page" : undefined}
-              onClick={handleLinkClick}
             >
               {label}
             </Link>
