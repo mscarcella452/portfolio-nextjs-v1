@@ -1,37 +1,35 @@
 import React from "react";
+import Link from "next/link";
 import clsx from "clsx";
 import styles from "@styles/components/button.module.css";
 
-type ButtonProps = {
+type ButtonLinkProps = {
   variant?: "primary" | "secondary";
-  type?: "button" | "submit" | "reset"; // For <button>
-  className?: string; // Custom class names
-  children: React.ReactNode; // Content inside the button
-  onClick?: () => void;
-} & React.ButtonHTMLAttributes<HTMLButtonElement>;
+  href: string;
+  className?: string;
+  children: React.ReactNode;
+} & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
-function Button({
+const ButtonLink = ({
   variant,
-  type = "button",
-  onClick,
+  href,
   className,
   children,
   ...rest
-}: ButtonProps) {
+}: ButtonLinkProps) => {
   return (
-    <button
+    <Link
       className={clsx(
         variant === "primary" && styles.primaryButton,
         variant === "secondary" && styles.secondaryButton,
         className
       )}
-      onClick={onClick}
-      type={type}
+      href={href}
       {...rest}
     >
       {children}
-    </button>
+    </Link>
   );
-}
+};
 
-export default Button;
+export default ButtonLink;

@@ -1,0 +1,12 @@
+.button {
+  @apply btn p-1 rounded transition-colors duration-300;
+}
+
+.primaryButton {
+  @apply button;
+  @apply bg-primary-main hover:bg-primary-dark text-black;
+}
+.secondaryButton {
+  @apply button;
+  @apply bg-primary-main hover:bg-primary-dark text-black;
+}

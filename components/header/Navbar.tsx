@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import HamburgerButton from "@/components/header/HamburgerButton";
 import NavLinks from "./NavLinks";
-import Button from "@/components/Button";
+import ButtonLink from "@/components/ButtonLink";
 
 type NavbarProps = {
   isOpen: boolean;
@@ -21,9 +21,9 @@ const Navbar = ({ isOpen, handleToggleMenu }: NavbarProps) => {
       />
       <div className='hidden lg:flex items-center space-x-8'>
         <NavLinks containerClassName='flex space-x-8' />
-        <Button as='link' href='/contact' variant='primary'>
+        <ButtonLink href='/contact' variant='primary'>
           Hire Me
-        </Button>
+        </ButtonLink>
       </div>
     </nav>
   );
