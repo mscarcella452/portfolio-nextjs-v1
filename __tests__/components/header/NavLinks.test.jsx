@@ -16,70 +16,49 @@ vi.mock("next/navigation", () => ({
 }));
 
 describe("NavLinks", () => {
-  const currentRoute = "/about";
   beforeEach(() => {
-    usePathname.mockReturnValue(currentRoute); // Set mock implementation before rendering
+    usePathname.mockReturnValue("/about"); // Set mock implementation before rendering
   });
   afterEach(() => {
     vi.resetAllMocks();
   });
 
-  it("should render all navigation links with correct label and href", () => {
+  it("renders the correct navigation links with active link as a span and non-active links as <Link> with proper hrefs", () => {
     render(<NavLinks />);
     navLinks.forEach(({ label, href }) => {
-      const link = screen.getByRole("link", { name: new RegExp(label, "i") });
-      expect(link).toHaveAttribute("href", href);
-    });
-  });
-  it("should apply correct custom classes to the container and links", () => {
-    const containerClassName = "customer-container-class";
-    const linkClassName = "custom-link-class";
-
-    render(
-      <NavLinks
-        containerClassName={containerClassName}
-        linkClassName={linkClassName}
-      />
-    );
-    const link = screen.getByRole("list");
-    expect(link).toHaveClass(containerClassName);
-
-    navLinks.forEach(({ label }) => {
-      const link = screen.getByRole("link", { name: new RegExp(label, "i") });
-      expect(link).toHaveClass(linkClassName);
-    });
-  });
-  it("should apply correct color classes to active and non-active links", () => {
-    const activeColor = "text-[white]";
-    const textColor = "text-primary-main";
-    const hoverColor = "text-[red]";
-
-    render(<NavLinks activeColor={activeColor} textColor={textColor} />);
-
-    navLinks.forEach(({ label, href }) => {
-      const link = screen.getByRole("link", { name: new RegExp(label, "i") });
       const activeLink = href === usePathname();
       if (activeLink) {
-        expect(link).toHaveClass(activeColor);
-        expect(link).not.toHaveClass(textColor);
-        expect(link).not.toHaveClass(`hover:${hoverColor}`);
+        const spanElement = screen.getByText(label);
+        expect(spanElement).toBeInTheDocument();
       } else {
-        expect(link).toHaveClass(textColor);
-        expect(link).toHaveClass(`hover:${hoverColor}`);
-        expect(link).not.toHaveClass(activeColor);
+        const link = screen.getByRole("link", { name: new RegExp(label, "i") });
+        expect(link).toHaveAttribute("href", href);
       }
     });
   });
 
-  it("should apply aria-current attribute to the active link", () => {
+  it("should apply correct custom class to the navigation list wrapper when passed as a prop", () => {
+    const listClassName = "customer-list-class";
+
+    const { rerender } = render(<NavLinks listClassName={listClassName} />);
+    let ul = screen.getByRole("list");
+    expect(ul).toHaveClass(listClassName);
+
+    rerender(<NavLinks />);
+    ul = screen.getByRole("list");
+    expect(ul).not.toHaveClass(listClassName);
+  });
+
+  it("should apply aria-current attribute on the active link and ensures non-active links do not have aria-current", () => {
     render(<NavLinks />);
 
     navLinks.forEach(({ label, href }) => {
       const activeLink = href === usePathname();
-      const link = screen.getByRole("link", { name: new RegExp(label, "i") });
       if (activeLink) {
-        expect(link).toHaveAttribute("aria-current", "page");
+        const spanElement = screen.getByText(label);
+        expect(spanElement).toHaveAttribute("aria-current", "page");
       } else {
+        const link = screen.getByRole("link", { name: new RegExp(label, "i") });
         expect(link).not.toHaveAttribute("aria-current");
       }
     });

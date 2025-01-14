@@ -1,9 +1,11 @@
 import React from "react";
 
-interface Props {}
+// type ContactPageProps = {
+//   dummyProp?: string;
+// };
 
-const ContactPage = ({}: Props) => {
-  return <div>Contact Page</div>;
+const ContactPage = () => {
+  return <div>ContactPage</div>;
 };
 
 export default ContactPage;

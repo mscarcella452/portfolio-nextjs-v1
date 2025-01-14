@@ -30,33 +30,33 @@ describe("HamburgerButton", () => {
   });
 
   it("renders the lines of the hamburger button with correct classes based on the Open state", () => {
-    const { rerender } = render(<HamburgerButton isOpen={true} />);
+    const { rerender, container } = render(<HamburgerButton isOpen={true} />);
 
-    let topLine = screen.getByLabelText(/top/i);
-    let middleLine = screen.getByLabelText(/middle/i);
-    let bottomLine = screen.getByLabelText(/bottom/i);
+    let lines = screen.getAllByTestId("hamburger-line");
 
-    expect(topLine).toHaveClass("rotate-45");
-    expect(middleLine).toHaveClass("opacity-0");
-    expect(bottomLine).toHaveClass("-rotate-45");
+    expect(lines[0]).toHaveClass("rotate-45");
+    expect(lines[1]).toHaveClass("opacity-0");
+    expect(lines[2]).toHaveClass("-rotate-45");
 
     rerender(<HamburgerButton isOpen={false} />);
 
-    expect(topLine).toHaveClass("-translate-y-1.5");
-    expect(middleLine).toHaveClass("opacity-100");
-    expect(bottomLine).toHaveClass("translate-y-1.5");
+    lines = screen.getAllByTestId("hamburger-line");
+
+    expect(lines[0]).toHaveClass("-translate-y-1.5");
+    expect(lines[1]).toHaveClass("opacity-100");
+    expect(lines[2]).toHaveClass("translate-y-1.5");
   });
 
   it("should display the correct text for screen readers based on the Open state", () => {
     const { rerender } = render(<HamburgerButton isOpen={true} />);
 
-    let srText = screen.getByText(/close/i);
-    expect(srText).toBeInTheDocument();
+    let srText = screen.getByRole("status");
+    expect(srText).toHaveTextContent(/open/i);
 
     rerender(<HamburgerButton isOpen={false} />);
 
-    srText = screen.getByText(/open/i);
-    expect(srText).toBeInTheDocument();
+    srText = screen.getByRole("status");
+    expect(srText).toHaveTextContent(/closed/i);
   });
 
   it("should call onClick when the button is clicked", async () => {

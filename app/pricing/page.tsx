@@ -1,8 +1,10 @@
 import React from "react";
 
-interface Props {}
+// type PricingPageProps = {
+//   dummyProp?: string;
+// };
 
-const PricingPage = ({}: Props) => {
+const PricingPage = () => {
   return <div>PricingPage</div>;
 };
 

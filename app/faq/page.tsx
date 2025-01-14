@@ -1,9 +1,11 @@
 import React from "react";
 
-interface Props {}
+// type PropsName = {
+//   dummyProp?: string;
+// };
 
-const FAQPage = ({}: Props) => {
-  return <div>FAQ Page</div>;
+const FAQPage = () => {
+  return <div>FAQPage</div>;
 };
 
 export default FAQPage;

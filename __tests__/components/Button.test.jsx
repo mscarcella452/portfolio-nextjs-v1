@@ -12,25 +12,28 @@ describe("Button", () => {
     expect(button).toBeInTheDocument();
   });
   it("should apply correct variant classes based if a variant prop is passed", () => {
+    const primaryBtnClass = /primary-btn/i;
+    const secondaryBtnClass = /secondary-btn/i;
+
     const { rerender } = render(
       <Button variant={"primary"}>{buttonLabel}</Button>
     );
 
     let button = screen.getByRole("button");
-    expect(button).toHaveClass(/primaryButton/i);
-    expect(button).not.toHaveClass(/secondaryButton/i);
+    expect(button).toHaveClass(primaryBtnClass);
+    expect(button).not.toHaveClass(secondaryBtnClass);
 
     rerender(<Button variant={"secondary"}>{buttonLabel}</Button>);
 
     button = screen.getByRole("button");
-    expect(button).toHaveClass(/secondaryButton/i);
-    expect(button).not.toHaveClass(/primaryButton/i);
+    expect(button).toHaveClass(secondaryBtnClass);
+    expect(button).not.toHaveClass(primaryBtnClass);
 
     rerender(<Button>{buttonLabel}</Button>);
 
     button = screen.getByRole("button");
-    expect(button).not.toHaveClass(/secondaryButton/i);
-    expect(button).not.toHaveClass(/primaryButton/i);
+    expect(button).not.toHaveClass(primaryBtnClass);
+    expect(button).not.toHaveClass(secondaryBtnClass);
   });
 
   it("should apply the correct custom classname if it is passed as a prop", () => {

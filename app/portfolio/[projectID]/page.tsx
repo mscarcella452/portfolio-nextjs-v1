@@ -1,8 +1,10 @@
 import React from "react";
 
-interface Props {}
+// type ProjectPageProps = {
+//   dummyProp?: string;
+// };
 
-const ProjectPage = ({}: Props) => {
+const ProjectPage = () => {
   return <div>ProjectPage</div>;
 };
 

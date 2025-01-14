@@ -2,46 +2,37 @@
 import Link from "next/link";
 import { navLinks } from "@/config/siteConfig";
 import { usePathname } from "next/navigation";
-import clsx from "clsx";
-
-type LinkColorProp = `text-${string}`;
 
 type NavLinksProps = {
-  containerClassName?: string;
-  linkClassName?: string;
-  activeColor?: LinkColorProp;
-  textColor?: LinkColorProp;
-  hoverColor?: LinkColorProp;
+  listClassName?: string;
 };
 
-function NavLinks({
-  containerClassName,
-  linkClassName,
-  textColor = "text-primary-main",
-  hoverColor = "text-[red]",
-  activeColor = "text-[white]",
-}: NavLinksProps) {
+function NavLinks({ listClassName }: NavLinksProps) {
   const currentRoute = usePathname();
 
   return (
-    <ul className={containerClassName}>
+    <ul className={listClassName}>
       {navLinks.map(({ label, href }, index) => {
         const activePage = currentRoute === href;
 
         return (
           <li key={index}>
-            <Link
-              href={href}
-              className={clsx("transition-colors duration-300", linkClassName, {
-                [activeColor]: activePage,
-                [textColor]: !activePage,
-                [`hover:${hoverColor}`]: !activePage,
-              })}
-              aria-label={`Go to ${label} page`}
-              aria-current={activePage ? "page" : undefined}
-            >
-              {label}
-            </Link>
+            {activePage ? (
+              <span
+                className='text-primary-main font-medium'
+                aria-current='page' // Indicate this is the active page
+              >
+                {label}
+              </span>
+            ) : (
+              <Link
+                href={href}
+                className='transition-colors duration-300 text-white hover:text-primary-dark'
+                aria-label={`Go to ${label} page`}
+              >
+                {label}
+              </Link>
+            )}
           </li>
         );
       })}

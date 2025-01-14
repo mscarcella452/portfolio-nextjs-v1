@@ -6,6 +6,7 @@ export default {
     "./components/**/*.{html,js,ts,jsx,tsx}",
     "./features/**/*.{html,js,ts,jsx,tsx}",
     "./public/**/*.{html,js}", // if you have HTML or JS files in the public folder
+    "./styles/**/*.{css}",
   ],
   theme: {
     screens: {
@@ -15,6 +16,8 @@ export default {
       xl: "1440px",
     },
     colors: {
+      white: "#fff",
+      black: "#333",
       blue: "#1fb6ff",
       purple: "#7e5bef",
       pink: "#ff49db",

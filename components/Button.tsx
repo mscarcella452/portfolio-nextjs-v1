@@ -6,7 +6,8 @@ type ButtonProps = {
   variant?: "primary" | "secondary";
   type?: "button" | "submit" | "reset"; // For <button>
   className?: string; // Custom class names
-  children: React.ReactNode; // Content inside the button
+  children: string; // Content inside the button
+  // children: React.ReactNode; // Content inside the button
   onClick?: () => void;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
@@ -21,8 +22,11 @@ function Button({
   return (
     <button
       className={clsx(
-        variant === "primary" && styles.primaryButton,
-        variant === "secondary" && styles.secondaryButton,
+        "btn",
+        {
+          "primary-btn": variant === "primary",
+          "secondary-btn": variant === "secondary",
+        },
         className
       )}
       onClick={onClick}

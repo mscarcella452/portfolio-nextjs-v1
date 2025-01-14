@@ -1,9 +1,11 @@
 import React from "react";
 import Image from "next/image";
 
-interface Props {}
+// type FooterProps = {
+//   dummyProp?: string;
+// };
 
-const Footer = ({}: Props) => {
+const Footer = () => {
   return (
     <footer className='flex items-center justify-around border border-gray-300 w-[100%] max-w-screen-sm'>
       <a

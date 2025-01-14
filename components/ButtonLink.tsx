@@ -2,12 +2,14 @@ import React from "react";
 import Link from "next/link";
 import clsx from "clsx";
 import styles from "@styles/components/button.module.css";
+import "@styles/components/button.css";
 
 type ButtonLinkProps = {
   variant?: "primary" | "secondary";
   href: string;
   className?: string;
-  children: React.ReactNode;
+  children: string;
+  // children: React.ReactNode;
 } & React.AnchorHTMLAttributes<HTMLAnchorElement>;
 
 const ButtonLink = ({
@@ -20,8 +22,11 @@ const ButtonLink = ({
   return (
     <Link
       className={clsx(
-        variant === "primary" && styles.primaryButton,
-        variant === "secondary" && styles.secondaryButton,
+        "btn",
+        {
+          "primary-btn": variant === "primary",
+          "secondary-btn": variant === "secondary",
+        },
         className
       )}
       href={href}

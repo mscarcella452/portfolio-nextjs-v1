@@ -1,8 +1,10 @@
 import React from "react";
 
-interface Props {}
+// type LogoProps = {
+//   dummyProp?: string;
+// };
 
-const Logo = ({}: Props) => {
+const Logo = () => {
   return (
     <div className='flex flex-row items-center gap-2 border-2  '>
       <div className='h-[30px] w-[30px] bg-[#000] ' />

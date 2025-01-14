@@ -1,8 +1,10 @@
 import React from "react";
 
-interface Props {}
+// type PortfolioPagePage = {
+//   dummyProp?: string;
+// };
 
-const PortfolioPage = ({}: Props) => {
+const PortfolioPage = () => {
   return <div>PortfolioPage</div>;
 };
 

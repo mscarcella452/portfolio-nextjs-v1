@@ -12,6 +12,9 @@ describe("ButtonLink", () => {
     expect(link).toHaveAttribute("href", hrefExample);
   });
   it("should apply correct variant classes based if a variant prop is passed", () => {
+    const primaryBtnClass = /primary-btn/i;
+    const secondaryBtnClass = /secondary-btn/i;
+
     const { rerender } = render(
       <ButtonLink href={hrefExample} variant={"primary"}>
         {buttonLabel}
@@ -19,8 +22,8 @@ describe("ButtonLink", () => {
     );
 
     let link = screen.getByRole("link");
-    expect(link).toHaveClass(/primaryButton/i);
-    expect(link).not.toHaveClass(/secondaryButton/i);
+    expect(link).toHaveClass(primaryBtnClass);
+    expect(link).not.toHaveClass(secondaryBtnClass);
 
     rerender(
       <ButtonLink href={hrefExample} variant={"secondary"}>
@@ -28,14 +31,14 @@ describe("ButtonLink", () => {
       </ButtonLink>
     );
     link = screen.getByRole("link");
-    expect(link).toHaveClass(/secondaryButton/i);
-    expect(link).not.toHaveClass(/primaryButton/i);
+    expect(link).toHaveClass(secondaryBtnClass);
+    expect(link).not.toHaveClass(primaryBtnClass);
 
     rerender(<ButtonLink href={hrefExample}>{buttonLabel}</ButtonLink>);
 
     link = screen.getByRole("link");
-    expect(link).not.toHaveClass(/secondaryButton/i);
-    expect(link).not.toHaveClass(/primaryButton/i);
+    expect(link).not.toHaveClass(primaryBtnClass);
+    expect(link).not.toHaveClass(secondaryBtnClass);
   });
 
   it("should apply the correct custom classname if it is passed as a prop", () => {
