@@ -22,8 +22,10 @@ describe("Navbar", () => {
     vi.clearAllMocks();
   });
 
-  it("correctly renders child components: (HamburgerButton, NavLinks, button-link, NavMenu)", () => {
+  it("should correctly render the navbar and its child components", () => {
     render(<Navbar />);
+
+    expect(screen.getByTestId("navbar")).toBeInTheDocument();
     expect(screen.getByTestId("nav-links")).toBeInTheDocument();
     expect(screen.getByTestId("hamburger-btn")).toBeInTheDocument();
     expect(screen.getByRole("link", { name: /hire me/i })).toBeInTheDocument();
