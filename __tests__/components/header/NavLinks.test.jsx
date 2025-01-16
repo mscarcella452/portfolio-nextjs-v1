@@ -37,18 +37,6 @@ describe("NavLinks", () => {
     });
   });
 
-  it("should apply correct custom class to the navigation list wrapper when passed as a prop", () => {
-    const listClassName = "customer-list-class";
-
-    const { rerender } = render(<NavLinks listClassName={listClassName} />);
-    let ul = screen.getByRole("list");
-    expect(ul).toHaveClass(listClassName);
-
-    rerender(<NavLinks />);
-    ul = screen.getByRole("list");
-    expect(ul).not.toHaveClass(listClassName);
-  });
-
   it("should apply aria-current attribute on the active link and ensures non-active links do not have aria-current", () => {
     render(<NavLinks />);
 

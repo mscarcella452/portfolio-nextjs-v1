@@ -19,7 +19,10 @@ function NavMenu({ isOpen }: NavMenuProps) {
         }
       )}
     >
-      <NavLinks listClassName='flex flex-col gap-2 items-center align-center' />
+      <NavLinks
+        className='flex flex-col gap-2 items-center align-center'
+        data-testid='nav-links-nav-menu'
+      />
     </nav>
   );
 }

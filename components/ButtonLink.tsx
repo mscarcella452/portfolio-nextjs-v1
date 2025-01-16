@@ -21,7 +21,6 @@ const ButtonLink = ({
 }: ButtonLinkProps) => {
   return (
     <Link
-      data-testid='btn-link'
       className={clsx(
         "btn",
         {

@@ -44,7 +44,11 @@ describe("ButtonLink", () => {
   it("should apply the correct custom classname if it is passed as a prop", () => {
     const customClassName = "customClassName";
     render(
-      <ButtonLink href={hrefExample} className={customClassName}>
+      <ButtonLink
+        href={hrefExample}
+        className={customClassName}
+        data-testid='button-link'
+      >
         {buttonLabel}
       </ButtonLink>
     );

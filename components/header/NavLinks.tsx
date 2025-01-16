@@ -3,15 +3,13 @@ import Link from "next/link";
 import { navLinks } from "@/config/siteConfig";
 import { usePathname } from "next/navigation";
 
-type NavLinksProps = {
-  listClassName?: string;
-};
+type NavLinksProps = React.HTMLAttributes<HTMLUListElement>;
 
-function NavLinks({ listClassName }: NavLinksProps) {
+function NavLinks({ ...rest }: NavLinksProps) {
   const currentRoute = usePathname();
 
   return (
-    <ul className={listClassName}>
+    <ul {...rest}>
       {navLinks.map(({ label, href }, index) => {
         const activePage = currentRoute === href;
 
