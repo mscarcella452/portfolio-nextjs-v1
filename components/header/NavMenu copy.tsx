@@ -14,12 +14,12 @@ function NavMenu({ isOpen }: NavMenuProps) {
       className={clsx(
         "absolute top-navbarHeight left-0 right-0 w-[full] bg-secondary-main transition-all duration-300 ease-in-out flex flex-col items-center justify-center overflow-hidden",
         {
-          "h-navmenuHeight lg:hidden": isOpen,
+          "h-navmenuHeight lg:h-[0]": isOpen,
           "h-[0]": !isOpen,
         }
       )}
     >
-      <NavLinks listClassName='flex flex-col gap-2 items-center align-center' />
+      <NavLinks listClassName='flex flex-col gap-2 items-center align-center lg:hidden' />
     </nav>
   );
 }

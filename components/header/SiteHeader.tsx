@@ -14,6 +14,7 @@ function SiteHeader() {
       className='flex flex-row items-center gap-2 border-2  '
       href='/'
       aria-label='Go to Home page'
+      data-testid='site-header'
       // onClick={onClick}
     >
       <Image src={logo.src} alt={logo.alt} width={30} height={30} />

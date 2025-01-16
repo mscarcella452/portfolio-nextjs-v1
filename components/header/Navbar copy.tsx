@@ -1,18 +1,14 @@
-"use client";
-
 import { useCallback, useState, useEffect } from "react";
 import HamburgerButton from "@/components/header/HamburgerButton";
 import NavLinks from "@/components/header/NavLinks";
 import NavMenu from "@/components/header/NavMenu";
 import ButtonLink from "@/components/ButtonLink";
 import { usePathname } from "next/navigation";
-import useMediaQuery from "@/hooks/useMediaQuery";
-import usePathChange from "@/hooks/usePathChange";
 
 const Navbar = () => {
+  const pathname = usePathname(); // Current pathname from Next.js
+  const [previousPath, setPreviousPath] = useState<string>(pathname || "");
   const [menuOpen, setMenuOpen] = useState(false);
-  const isLgScreen = useMediaQuery("(min-width: 1024px)");
-  const pathChanged = usePathChange();
 
   // Memoize the toggleMenu function with useCallback
   const handleToggleMenu = useCallback(() => {
@@ -20,16 +16,11 @@ const Navbar = () => {
   }, []);
 
   useEffect(() => {
-    if (menuOpen && pathChanged) {
-      setMenuOpen(false); // Close menu when path changes
+    if (menuOpen && previousPath !== pathname) {
+      setMenuOpen(false);
     }
-  }, [pathChanged, menuOpen]);
-
-  useEffect(() => {
-    if (isLgScreen && menuOpen) {
-      setMenuOpen(false); // Close menu when screen size is Lg or larger
-    }
-  }, [isLgScreen, menuOpen]);
+    setPreviousPath(pathname);
+  }, [pathname, menuOpen]);
 
   return (
     <nav className='flex justify-between items-center' data-testid='navbar'>

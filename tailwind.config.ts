@@ -6,7 +6,7 @@ export default {
     "./components/**/*.{html,js,ts,jsx,tsx}",
     "./features/**/*.{html,js,ts,jsx,tsx}",
     "./public/**/*.{html,js}", // if you have HTML or JS files in the public folder
-    "./styles/**/*.{css}",
+    "./styles/**/*.css",
   ],
   theme: {
     screens: {

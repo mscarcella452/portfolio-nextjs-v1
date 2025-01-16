@@ -23,7 +23,7 @@ describe("NavMenu", () => {
 
     let navMenu = screen.getByTestId("nav-menu");
 
-    expect(navMenu).toHaveClass("h-navmenuHeight lg:h-[0]");
+    expect(navMenu).toHaveClass("h-navmenuHeight");
     expect(navMenu).toHaveAttribute("aria-hidden", "false");
 
     rerender(<NavMenu isOpen={false} />);

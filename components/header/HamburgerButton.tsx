@@ -21,6 +21,7 @@ function HamburgerButton({
       onClick={onClick}
       aria-label='Toggle navigation menu'
       aria-expanded={isOpen}
+      data-testid='hamburger-btn'
     >
       {/* Accessible text for screen readers */}
       <div className='sr-only' role='status'>
