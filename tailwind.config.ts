@@ -8,6 +8,7 @@ export default {
     "./public/**/*.{html,js}", // if you have HTML or JS files in the public folder
     "./styles/**/*.css",
   ],
+  darkMode: "selector", // Enables dark mode via the 'dark' class on the <html> element
   theme: {
     screens: {
       sm: "480px",
