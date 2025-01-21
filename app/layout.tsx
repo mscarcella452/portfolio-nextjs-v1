@@ -25,10 +25,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='en' className=' h-full overflow-hidden'>
       <body className={`${geistSans.variable} ${geistMono.variable} h-[100vh]`}>
         <Header />
-        {children}
+        <main className='pt-header flex flex-col'>{children}</main>
         <Footer />
       </body>
     </html>
