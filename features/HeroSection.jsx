@@ -59,10 +59,10 @@ const HeroCTA = () => {
         I build custom websites that look great, work fast, and are easy to use.
       </h4>
       <div className='flex gap-4'>
-        <ButtonLink variant='primary' href='/'>
+        <ButtonLink variant='primary' size='lg' href='/'>
           Get Started
         </ButtonLink>
-        <ButtonLink variant='secondary' href='/'>
+        <ButtonLink variant='secondary' size='lg' href='/'>
           View My Work
         </ButtonLink>
       </div>

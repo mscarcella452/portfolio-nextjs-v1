@@ -3,7 +3,8 @@ import clsx from "clsx";
 import styles from "@styles/components/button.module.css";
 
 type ButtonProps = {
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "primary-outline" | "secondary" | "secondary-outline";
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
   type?: "button" | "submit" | "reset"; // For <button>
   className?: string; // Custom class names
   children: string; // Content inside the button
@@ -13,6 +14,7 @@ type ButtonProps = {
 
 function Button({
   variant,
+  size,
   type = "button",
   onClick,
   className,
@@ -21,14 +23,7 @@ function Button({
 }: ButtonProps) {
   return (
     <button
-      className={clsx(
-        "btn",
-        {
-          "primary-btn": variant === "primary",
-          "secondary-btn": variant === "secondary",
-        },
-        className
-      )}
+      className={clsx("btn", `${variant}-btn`, `btn-${size}`, className)}
       onClick={onClick}
       type={type}
       {...rest}
