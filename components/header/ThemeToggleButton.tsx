@@ -1,12 +1,11 @@
 import React from "react";
 import useThemeToggle from "@/hooks/useThemeToggle";
-import { SunIcon } from "@heroicons/react/24/outline";
-import { MoonIcon } from "@heroicons/react/24/outline";
+import { SunIcon, MoonIcon } from "@heroicons/react/24/outline";
 
 const ThemeToggleButton = () => {
   const { theme, toggleTheme } = useThemeToggle();
   const iconClass =
-    "w-5 h-5 text-primary-main hover:text-primary-light transition-colors duration-300 ease-in-out";
+    "w-5 h-5 text-primary hover:text-primary-dark transition-colors duration-300 ease-in-out";
   return (
     <button
       onClick={toggleTheme}

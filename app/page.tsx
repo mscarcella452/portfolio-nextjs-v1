@@ -10,6 +10,7 @@ export default function Home() {
   return (
     <>
       <HeroSection />
+      
       <section className='bg-neutral-light dark:bg-neutral-dark dark:text-neutral flex'>
         <div className='flex-1'>{fullContent}</div>
       </section>
@@ -19,3 +20,5 @@ export default function Home() {
     </>
   );
 }
+
+

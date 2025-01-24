@@ -1,22 +1,35 @@
 import React from "react";
 import ButtonLink from "@/components/ButtonLink";
 import Image from "next/image";
+import { CodeBracketSquareIcon } from "@heroicons/react/24/outline";
+import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/outline";
+import { ComputerDesktopIcon } from "@heroicons/react/24/outline";
+
+{
+  /* <section className='bg-[#FCF8F1] bg-opacity-30 py-10 flex items-center sm:py-16'>
+
+  <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 flex flex-col bg-[red]'>
+    <div className='grid items-center grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start bg-[teal]'>
+      <HeroCTA />
+      <div className='w-full h-full bg-[blue]' />
+    </div>
+    <HeroFeatures className='hidden lg:flex mt-10' />
+  </div>
+</section>; */
+}
+
+{
+  /* <section className='bg-[#FCF8F1] bg-opacity-30 py-10 sm:py-16 lg:py-24'> */
+}
 
 function HeroSection() {
   return (
-    <section className='w-full max-w-[1280px] min-h-heroSection dark:bg-black flex flex-col gap-6 justify-between  self-center'>
-      {/* <div className='w-full '>
-        <h5>[Front End Developer] [New York]</h5>
-      </div> */}
-      <div className='w-full  grid grid-cols-2 gap-6 items-center '>
-        <div className='w-full max-w-lg  h-full bg-[green] justify-self-start'>
-          <HeroImage />
-        </div>
-        <div className='w-full max-w-xl h-full max-h-[500px]  justify-self-center self-center flex flex-col justify-around order-first lg:order-last'>
-          <HeroCTA />
-        </div>
-      </div>
-      <div className='w-full flex-1  flex justify-between items-center'>
+    <section className='bg-[white] xl:min-h-heroSection flex items-center justify-center '>
+      <div className='max-w-7xl gap-6 sm:gap-8 md:gap-10 xl:gap-14  grid grid-cols-1 lg:grid-cols-2 items-center'>
+        {/* <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-6 lg:gap-8 xl:gap-10 bg-[red] grid grid-cols-1 lg:grid-cols-2 items-center'> */}
+        <HeroCTA />
+
+        <HeroImage />
         <HeroFeatures />
       </div>
     </section>
@@ -25,40 +38,51 @@ function HeroSection() {
 
 export default HeroSection;
 
+const iconClass =
+  "w-7 h-7 text-primary hover:text-primary-light transition-colors duration-300 ease-in-out";
+
 const heroFeatures = [
-  { heading: "100%", subHeading: "hand-coded" },
-  { heading: "No", subHeading: "page-builders" },
-  { heading: "SEO", subHeading: "services" },
-  { heading: "Responsive", subHeading: "design" },
+  {
+    icon: <CodeBracketSquareIcon className={iconClass} />,
+    title: "100% Hand-Coded",
+  },
+  {
+    icon: <MagnifyingGlassCircleIcon className={iconClass} />,
+    title: "SEO Services",
+  },
+  {
+    icon: <ComputerDesktopIcon className={iconClass} />,
+    title: "Responsive Design",
+  },
 ];
 
 const HeroImage = () => {
   return (
     <Image
       src='/images/background/demoIllustration.png'
-      // layout='responsive'
-      className='object-contain  w-[100%] h-[100%]'
-      // className='rounded-lg shadow-lg object-contain w-full h-full'
-      width={644}
-      height={494}
-      alt='Picture of the author'
+      alt='Descriptive alt text'
+      className='object-contain w-full order-3 lg:order-2'
+      width={611}
+      height={439}
     />
   );
 };
+
 const HeroCTA = () => {
   return (
-    <>
-      <div className='flex gap-2 items-center'>
-        <div className='h-5 w-5 bg-primary rounded-[50%]' />
-        <h5>Available For Freelance [Front End Developer] [New York]</h5>
-      </div>
-      <h1 className='text-5xl'>
-        Helping small businesses get online and stand out.
+    <div className='flex flex-col gap-6 sm:gap-8'>
+      <p className='text-base font-semibold tracking-wider text-blue-600 uppercase'>
+        Front End Developer{" "}
+        <span className='text-sm sm:text-base'>[New York]</span>
+      </p>
+      <h1 className='text-4xl font-bold text-black sm:text-5xl md:text-6xl xl:text-7xl'>
+        Helping small businesses thrive online.
       </h1>
-      <h4 className='text-2xl'>
+      <p className='text-base text-black sm:text-xl max-w-lg '>
         I build custom websites that look great, work fast, and are easy to use.
-      </h4>
-      <div className='flex gap-4'>
+      </p>
+
+      <div className='flex gap-4 '>
         <ButtonLink variant='primary' size='lg' href='/'>
           Get Started
         </ButtonLink>
@@ -66,22 +90,23 @@ const HeroCTA = () => {
           View My Work
         </ButtonLink>
       </div>
-    </>
+    </div>
   );
 };
 
 const HeroFeatures = () => {
   return (
-    <>
-      {heroFeatures.map(({ heading, subHeading }, index) => (
-        <div
-          className='w-[150px] h-[100px] flex flex-col bg-[#fafafa] items-center justify-center'
-          key={index}
-        >
-          <h5 className='text-lg font-bold'>{heading}</h5>
-          <p>{subHeading}</p>
-        </div>
+    <ul
+      className={`gap-6 flex flex-col md:flex-row md:items-center lg:col-span-2 order-2 lg:order-3`}
+    >
+      {heroFeatures.map(({ icon, title }, index) => (
+        <li className='flex items-center' key={index}>
+          <span className='text-base'> {icon}</span>
+          <p className='flex-1 text-base font-semi-bold text-gray-900 ml-2.5'>
+            {title}
+          </p>
+        </li>
       ))}
-    </>
+    </ul>
   );
 };

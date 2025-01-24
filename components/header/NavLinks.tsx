@@ -25,7 +25,7 @@ function NavLinks({ ...rest }: NavLinksProps) {
             ) : (
               <Link
                 href={href}
-                className='transition-colors duration-300 text-white hover:text-primary-dark'
+                className='transition-colors duration-300 text-[black] hover:text-primary-dark'
                 aria-label={`Go to ${label} page`}
               >
                 {label}

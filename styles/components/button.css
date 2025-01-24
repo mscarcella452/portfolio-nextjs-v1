@@ -28,7 +28,7 @@
   @apply px-4 py-2 text-sm;
 }
 .btn-lg {
-  @apply px-5 py-2.5 text-base;
+  @apply btn-md sm:px-5 sm:py-2.5 sm:text-base;
 }
 .btn-xl {
   @apply px-6 py-3 text-base;

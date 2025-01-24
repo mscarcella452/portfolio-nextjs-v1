@@ -26,7 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en' className=' h-full overflow-hidden'>
-      <body className={`${geistSans.variable} ${geistMono.variable} h-[100vh]`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} h-[100vh] relative`}
+      >
         <Header />
         <main className='pt-header flex flex-col'>{children}</main>
         <Footer />
