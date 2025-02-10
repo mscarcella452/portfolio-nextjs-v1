@@ -4,7 +4,7 @@ import Navbar from "@/components/header/Navbar";
 
 const Header = () => {
   return (
-    <header className='fixed top-0 left-0 right-0 bg-neutral-light dark:bg-neutral-dark h-navbarHeight p-4 flex items-center justify-between z-1000  '>
+    <header className='site-header bg-neutral-light dark:bg-neutral-dark flex items-center justify-between'>
       <SiteHeader />
       <Navbar />
     </header>

@@ -10,12 +10,12 @@ export default {
   ],
   darkMode: "selector", // Enables dark mode via the 'dark' class on the <html> element
   theme: {
-    screens: {
-      sm: "480px",
-      md: "768px",
-      lg: "976px",
-      xl: "1440px",
-    },
+    // screens: {
+    //   sm: "480px",
+    //   md: "768px",
+    //   lg: "976px",
+    //   xl: "1440px",
+    // },
     // fontSize: {
     //   sm: "0.8rem",
     //   base: "1rem",
@@ -25,23 +25,30 @@ export default {
     //   "4xl": "2.441rem",
     //   "5xl": "3.052rem",
     // },
+
     colors: {
       white: "#FFFFFF",
-      black: "#000000",
+      black: "#3f3e3e",
+
       transparent: "transparent",
       current: "currentColor", // Used for borders or icons matching text color
-
+      textColor: {
+        DEFAULT: "#3f3e3e",
+        dark: "#F9FAFB",
+      },
       // Primary Color
       primary: {
         light: "#4F46E5", // Light shade
-        DEFAULT: "#3B82F6", // Main primary color (blue)
+        DEFAULT: "#30638e", // Main primary color (blue)
+        // DEFAULT: "#3B82F6", // Main primary color (blue)
         dark: "#1E3A8A", // Dark variant (deep blue)
       },
 
       // Secondary Color
       secondary: {
         light: "#FACC15", // Light shade (yellow)
-        DEFAULT: "#F59E0B", // Main secondary color (yellow)
+        DEFAULT: "#d1495b", // Main secondary color (yellow)
+        // DEFAULT: "#F59E0B", // Main secondary color (yellow)
         dark: "#B45309", // Dark variant (burnt orange)
       },
 
@@ -52,6 +59,12 @@ export default {
         dark: "#374151", // Dark gray (headings or accents)
       },
 
+      // Accent Colors
+      accent: {
+        light: "#D1FAE5", // Light green (success alerts)
+        DEFAULT: "#edae49", // Green (success messages/buttons)
+        dark: "#047857", // Dark green (for emphasis)
+      },
       // Success Colors
       success: {
         light: "#D1FAE5", // Light green (success alerts)
@@ -88,22 +101,32 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        primary: ["var(--font-lato)"], // Body text
+        secondary: ["var(--font-league-spartan)", "sans-serif"], // Headings
+        // secondary: ["var(--font-montserrat)"], // Headings
+        accent: ["var(--font-archivo)"], // Accent font
+      },
       spacing: {
         header: "60px",
         navbarHeight: "60px",
         heroSection: "calc(100vh - 60px)",
         navmenuHeight: "100vh",
       },
-      container: {
-        center: true, // Centers the container by default
-        padding: "2rem", // Adds padding inside the container
-        screens: {
-          sm: "100%", // 100% width for small screens
-          md: "768px", // Medium screen max-width
-          lg: "1024px", // Large screen max-width
-          xl: "1280px", // Extra large screen max-width
-        },
-      },
+      // container: {
+      //   center: true, // Centers the container by default
+      //   padding: "2rem", // Adds padding inside the container
+      //   screens: {
+      //     sm: "100%", // 100% width for small screens
+      //     md: "768px", // Medium screen max-width
+      //     lg: "1024px", // Large screen max-width
+      //     xl: "1280px", // Extra large screen max-width
+      //   },
+      //   'lg': {
+      //     padding: "3rem", // larger padding
+      //     maxWidth: "1024px", // maximum width for large screens
+      //   },
+      // },
     },
   },
   plugins: [],

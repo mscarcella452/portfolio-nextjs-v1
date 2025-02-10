@@ -6,19 +6,6 @@ import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/outline";
 import { ComputerDesktopIcon } from "@heroicons/react/24/outline";
 
 {
-  /* <section className='bg-[#FCF8F1] bg-opacity-30 py-10 flex items-center sm:py-16'>
-
-  <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 flex flex-col bg-[red]'>
-    <div className='grid items-center grid-cols-1 gap-10 lg:grid-cols-2 lg:items-start bg-[teal]'>
-      <HeroCTA />
-      <div className='w-full h-full bg-[blue]' />
-    </div>
-    <HeroFeatures className='hidden lg:flex mt-10' />
-  </div>
-</section>; */
-}
-
-{
   /* <section className='bg-[#FCF8F1] bg-opacity-30 py-10 sm:py-16 lg:py-24'> */
 }
 
@@ -26,9 +13,7 @@ function HeroSection() {
   return (
     <section className='bg-[white] xl:min-h-heroSection flex items-center justify-center '>
       <div className='max-w-7xl gap-6 sm:gap-8 md:gap-10 xl:gap-14  grid grid-cols-1 lg:grid-cols-2 items-center'>
-        {/* <div className='px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-6 lg:gap-8 xl:gap-10 bg-[red] grid grid-cols-1 lg:grid-cols-2 items-center'> */}
         <HeroCTA />
-
         <HeroImage />
         <HeroFeatures />
       </div>
@@ -38,8 +23,7 @@ function HeroSection() {
 
 export default HeroSection;
 
-const iconClass =
-  "w-7 h-7 text-primary hover:text-primary-light transition-colors duration-300 ease-in-out";
+const iconClass = "w-7 h-7 text-primary";
 
 const heroFeatures = [
   {
@@ -71,14 +55,15 @@ const HeroImage = () => {
 const HeroCTA = () => {
   return (
     <div className='flex flex-col gap-6 sm:gap-8'>
-      <p className='text-base font-semibold tracking-wider text-blue-600 uppercase'>
-        Front End Developer{" "}
-        <span className='text-sm sm:text-base'>[New York]</span>
+      <p className='text-small font-semibold tracking-wider text-blue-600 uppercase'>
+        {/* <p className='text-base font-semibold tracking-wider text-blue-600 uppercase'> */}
+        Front End Developer [New York]
       </p>
-      <h1 className='text-4xl font-bold text-black sm:text-5xl md:text-6xl xl:text-7xl'>
+
+      <h1 className='text-h-1 text-black'>
         Helping small businesses thrive online.
       </h1>
-      <p className='text-base text-black sm:text-xl max-w-lg '>
+      <p className='text-p-lg max-w-lg'>
         I build custom websites that look great, work fast, and are easy to use.
       </p>
 
@@ -100,11 +85,9 @@ const HeroFeatures = () => {
       className={`gap-6 flex flex-col md:flex-row md:items-center lg:col-span-2 order-2 lg:order-3`}
     >
       {heroFeatures.map(({ icon, title }, index) => (
-        <li className='flex items-center' key={index}>
-          <span className='text-base'> {icon}</span>
-          <p className='flex-1 text-base font-semi-bold text-gray-900 ml-2.5'>
-            {title}
-          </p>
+        <li className='flex items-center gap-2' key={index}>
+          {icon}
+          <p className='text-p font-semi-bold text-gray-900'>{title}</p>
         </li>
       ))}
     </ul>

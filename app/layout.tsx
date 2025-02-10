@@ -1,17 +1,25 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Lato, Montserrat, Archivo, League_Spartan } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const primaryFont = Lato({
   subsets: ["latin"],
+  weight: ["300", "400", "700"],
+  variable: "--font-lato",
 });
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const secondaryFont = League_Spartan({
   subsets: ["latin"],
+  variable: "--font-league-spartan",
+});
+// const secondaryFont = Montserrat({
+//   subsets: ["latin"],
+//   variable: "--font-montserrat",
+// });
+const accentFont = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo",
 });
 
 export const metadata: Metadata = {
@@ -27,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang='en' className=' h-full overflow-hidden'>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} h-[100vh] relative`}
+        className={`${primaryFont.variable} ${secondaryFont.variable} ${accentFont.variable} h-[100vh] relative`}
       >
         <Header />
         <main className='pt-header flex flex-col'>{children}</main>
@@ -36,3 +44,12 @@ export default function RootLayout({
     </html>
   );
 }
+
+const palette = {
+  blue: "#0c5788",
+  gray: "#a6a6a6",
+  lgihtGray1: "#ebebeb",
+  lgihtGray2: "#fafafa",
+  accent: "#c1e1de",
+  black: "#3f3e3e",
+};

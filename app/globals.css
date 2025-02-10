@@ -8,8 +8,88 @@
     @apply box-border;
   }
 
+  .site-header {
+    @apply fixed top-0 left-0 right-0  h-navbarHeight p-4;
+  }
   section {
+    @apply py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8;
+  }
+
+  .container-sm {
+    @apply mx-auto max-w-4xl w-full;
+  }
+  .container-md {
+    @apply mx-auto max-w-5xl w-full;
+  }
+  .container-lg {
+    @apply mx-auto max-w-6xl w-full;
+  }
+  .container-xl {
+    @apply mx-auto max-w-7xl w-full;
+  }
+
+  .section-container {
+    @apply container-xl space-y-24 md:space-y-32;
+  }
+
+  .inherit-gap {
+    gap: inherit;
+  }
+  /* section {
     @apply py-6 md:py-7 lg:py-8 px-4 md:px-6 lg:px-8;
+  } */
+
+  /* Heading Styles */
+  .text-h-1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-secondary text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl leading-tight text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-4 {
+    @apply text-xl sm:text-2xl lg:text-3xl text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-5 {
+    @apply text-lg sm:text-xl lg:text-2xl text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-6 {
+    @apply text-base sm:text-lg lg:text-xl text-textColor dark:text-textColor-dark;
+  }
+
+  /* Subheading Style */
+  /* .text-subheading {
+    @apply text-xl sm:text-2xl lg:text-3xl font-semibold;
+  } */
+
+  /* Paragraph Styles */
+  .text-p {
+    @apply text-base sm:text-lg lg:text-base font-primary text-black;
+  }
+
+  .text-p-sm {
+    @apply text-sm sm:text-base lg:text-sm font-primary text-black;
+  }
+
+  .text-p-lg {
+    @apply text-lg sm:text-xl lg:text-lg font-primary text-black;
+  }
+
+  /* Caption Style */
+  .text-caption {
+    @apply text-sm sm:text-base font-medium font-primary text-black;
+  }
+
+  /* Small Text Style */
+  .text-small {
+    @apply text-xs sm:text-sm font-primary text-black;
   }
 }
 

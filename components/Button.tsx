@@ -1,6 +1,5 @@
 import React from "react";
 import clsx from "clsx";
-import styles from "@styles/components/button.module.css";
 
 type ButtonProps = {
   variant?: "primary" | "primary-outline" | "secondary" | "secondary-outline";
