@@ -20,7 +20,7 @@ function IconTextBlock({
   return (
     <div
       className={clsx("grid gap-5", className)}
-      data-testId='div-wrapper'
+      data-testid='div-wrapper'
       aria-labelledby='block-title'
       aria-describedby='block-description'
     >

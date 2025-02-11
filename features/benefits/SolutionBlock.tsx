@@ -30,14 +30,15 @@ function SolutionBlock({ data }: SolutionBlockProps) {
           long-term success.
         </p>
       </div>
-      <div className='container-lg grid auto-rows-fr md:grid-cols-2 gap-8 md:gap-12 md:place-items-center'>
+      <div className='container-lg grid auto-rows-fr md:grid-cols-2 gap-8 md:gap-12 md:justify-items-start'>
         {data.map(({ title, description, IconComponent }, index) => (
           <IconTextBlock
             key={index}
             content={{ title, description }}
             IconComponent={IconComponent}
             variant='primary-highlight'
-            className='horizontal-md max-w-lg md:max-w-sm bg-neutral-light dark:bg-neutral-dark p-2 rounded-lg'
+            // className='horizontal-md max-w-lg md:max-w-sm bg-neutral-light dark:bg-neutral-dark p-2 rounded-lg'
+            className=' w-full bg-neutral-light dark:bg-neutral-dark p-4 rounded-lg'
           />
         ))}
       </div>
