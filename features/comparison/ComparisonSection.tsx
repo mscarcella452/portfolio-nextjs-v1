@@ -16,7 +16,8 @@ function ComparisonSection() {
             <ComparisonHeader content={data[0].header} />
             <ComparisonIconList
               content={data[0].iconList}
-              variant='secondary'
+              variant='solid'
+              color='secondary'
             />
           </div>
 
@@ -28,7 +29,8 @@ function ComparisonSection() {
             <ComparisonHeader content={data[1].header} />
             <ComparisonIconList
               content={data[1].iconList}
-              variant='primary-highlight'
+              variant='solid'
+              color='primary'
             />
           </div>
         </div>
@@ -53,10 +55,10 @@ const data = [
     iconList: {
       title: "With DIY...",
       list: [
-        { icon: SunIcon, description: "Lorem ipsum dolor sit amet." },
-        { icon: SunIcon, description: "Lorem ipsum dolor sit amet." },
-        { icon: SunIcon, description: "Lorem ipsum dolor sit amet." },
-        { icon: SunIcon, description: "Lorem ipsum dolor sit amet." },
+        { icon: <SunIcon />, description: "Lorem ipsum dolor sit amet." },
+        { icon: <SunIcon />, description: "Lorem ipsum dolor sit amet." },
+        { icon: <SunIcon />, description: "Lorem ipsum dolor sit amet." },
+        { icon: <SunIcon />, description: "Lorem ipsum dolor sit amet." },
       ],
     },
   },
@@ -73,10 +75,10 @@ const data = [
     iconList: {
       title: "With Me...",
       list: [
-        { icon: SunIcon, description: "Lorem ipsum dolor sit amet." },
-        { icon: SunIcon, description: "Lorem ipsum dolor sit amet." },
-        { icon: SunIcon, description: "Lorem ipsum dolor sit amet." },
-        { icon: SunIcon, description: "Lorem ipsum dolor sit amet." },
+        { icon: <SunIcon />, description: "Lorem ipsum dolor sit amet." },
+        { icon: <SunIcon />, description: "Lorem ipsum dolor sit amet." },
+        { icon: <SunIcon />, description: "Lorem ipsum dolor sit amet." },
+        { icon: <SunIcon />, description: "Lorem ipsum dolor sit amet." },
       ],
     },
   },
@@ -100,24 +102,25 @@ function ComparisonHeader({ content }: ComparisonHeaderProps) {
 type ComparisonIconListProps = {
   content: {
     title: string;
-    list: { icon: React.ElementType; description: string }[];
+    list: { icon: React.ReactNode; description: string }[];
   };
-  variant:
-    | "primary"
-    | "primary-highlight"
-    | "secondary"
-    | "secondary-highlight";
-};
+} & React.ComponentProps<typeof Icon>; // Inherit types from Icon component;
 
-function ComparisonIconList({ content, variant }: ComparisonIconListProps) {
+function ComparisonIconList({
+  content,
+  variant,
+  color,
+}: ComparisonIconListProps) {
   const { title, list } = content;
   return (
     <div className='space-y-5 '>
       <h3 className='text-h-6 font-medium font-secondary'>{title}</h3>
 
       {list.map((content, index) => (
-        <div className='flex gap-5 items-center'>
-          <Icon IconComponent={content.icon} variant={variant} size={"md"} />
+        <div className='flex gap-5 items-center' key={index}>
+          <Icon variant={variant} color={color} size={"md"}>
+            {content.icon}
+          </Icon>
           <p className='text-base text-neutral font-primary'>
             Lorem ipsum dolor sit amet.
           </p>

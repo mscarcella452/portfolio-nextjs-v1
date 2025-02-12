@@ -25,7 +25,7 @@ export default BenefitsSection;
 
 export const problems = [
   {
-    IconComponent: SunIcon,
+    icon: <SunIcon />,
     title: "Missed opportunities",
     description: "for new customers.",
     image: {
@@ -34,7 +34,7 @@ export const problems = [
     },
   },
   {
-    IconComponent: SunIcon,
+    icon: <SunIcon />,
     title: "Poor user experience",
     description: "that frustrates visitors.",
     image: {
@@ -43,7 +43,7 @@ export const problems = [
     },
   },
   {
-    IconComponent: SunIcon,
+    icon: <SunIcon />,
     title: "Low search rankings,",
     description: "making it harder for customers to find you.",
     image: {
@@ -52,7 +52,7 @@ export const problems = [
     },
   },
   {
-    IconComponent: SunIcon,
+    icon: <SunIcon />,
     title: "High bounce rates,",
     description: "meaning visitors leave before engaging with your business.",
     image: {
@@ -64,26 +64,26 @@ export const problems = [
 
 export const solutions = [
   {
-    IconComponent: SunIcon,
+    icon: <SunIcon />,
     title: "Tailored to Your Business Needs ",
     description:
       "Custom websites designed specifically for your brand, goals, and audience.",
   },
   {
-    IconComponent: SunIcon,
+    icon: <SunIcon />,
     title: "Real Results",
     description:
       "Websites that attract the right customers, drive engagement, and convert visitors into business.",
   },
   {
-    IconComponent: SunIcon,
+    icon: <SunIcon />,
     title: "Long Term Growth",
     description:
       "Flexible, scalable websites that evolve as your business grows.",
   },
   {
-    IconComponent: SunIcon,
-    title: "Long Term Growth",
+    icon: <SunIcon />,
+    title: "Long Term Growth1",
     description:
       "Flexible, scalable websites that evolve as your business grows.",
   },

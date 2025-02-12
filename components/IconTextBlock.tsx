@@ -7,13 +7,14 @@ type IconTextBlockProps = {
   content: {
     title: string;
     description: string;
+    icon: React.ReactNode;
   };
 } & React.ComponentProps<typeof Icon>; // Inherit types from Icon component
 
 function IconTextBlock({
   content,
   variant,
-  IconComponent,
+  color,
   size,
   className,
 }: IconTextBlockProps) {
@@ -24,12 +25,9 @@ function IconTextBlock({
       aria-labelledby='block-title'
       aria-describedby='block-description'
     >
-      <Icon
-        variant={variant}
-        size={size}
-        IconComponent={IconComponent}
-        aria-hidden='true'
-      />
+      <Icon variant={variant} color={color} size={size} aria-hidden='true'>
+        {content.icon}
+      </Icon>
       <div>
         <h3 id='block-title' className='text-h-5 font-semibold font-secondary'>
           {content.title}

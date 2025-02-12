@@ -6,7 +6,7 @@ type SolutionBlockProps = {
   data: {
     title: string;
     description: string;
-    IconComponent: React.ElementType;
+    icon: React.ReactNode;
   }[];
 };
 
@@ -31,12 +31,12 @@ function SolutionBlock({ data }: SolutionBlockProps) {
         </p>
       </div>
       <div className='container-lg grid auto-rows-fr md:grid-cols-2 gap-8 md:gap-12 md:justify-items-start'>
-        {data.map(({ title, description, IconComponent }, index) => (
+        {data.map((content, index) => (
           <IconTextBlock
             key={index}
-            content={{ title, description }}
-            IconComponent={IconComponent}
-            variant='primary-highlight'
+            content={content}
+            variant='solid'
+            color='primary'
             // className='horizontal-md max-w-lg md:max-w-sm bg-neutral-light dark:bg-neutral-dark p-2 rounded-lg'
             className=' w-full bg-neutral-light dark:bg-neutral-dark p-4 rounded-lg'
           />
@@ -44,7 +44,8 @@ function SolutionBlock({ data }: SolutionBlockProps) {
       </div>
 
       <ButtonLink
-        variant='primary'
+        variant='solid'
+        color='accent'
         size='md'
         href='/'
         className='max-w-[200] place-self-center'

@@ -1,30 +1,36 @@
 import clsx from "clsx";
+import "@styles/components/icons.css";
+import "@styles/components/ui-elements.css";
+import { UIColorVariantProps } from "@/config/types/UI";
 
-type IconProps = {
-  IconComponent: React.ElementType; // The icon component itself
-  variant?:
-    | "primary"
-    | "primary-highlight"
-    | "secondary"
-    | "secondary-highlight";
-  size?: "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
+type IconProps = UIColorVariantProps & {
+  children?: React.ReactNode;
   className?: string;
+  pointerEvent?: boolean;
 };
 
 function Icon({
-  IconComponent,
-  variant = "primary",
+  children,
+  variant = "solid",
+  color,
   size = "lg",
+  pointerEvent = false,
   className,
   ...rest
 }: IconProps) {
   return (
     <div
-      className={clsx(className, "icon", `icon-${size}`, `icon-${variant}`)}
+      className={clsx(
+        "icon",
+        `${color}-${variant}-variant`,
+        { "pointer-events-none": !pointerEvent },
+        `icon-${size}`,
+        className
+      )}
       data-testid='icon-wrapper'
       {...rest}
     >
-      <IconComponent />
+      {children}
     </div>
   );
 }

@@ -9,7 +9,7 @@ type AgitateBlockProps = {
   data: {
     title: string;
     description: string;
-    IconComponent: React.ElementType;
+    icon: React.ReactNode;
     image: {
       src: string;
       alt: string;
@@ -39,7 +39,7 @@ function AgitateBlock({ data }: AgitateBlockProps) {
           </span>
         </h3>
         <div className='grid auto-rows-fr md:grid-cols-2 gap-6 md:gap-8'>
-          {data.map(({ title, description, IconComponent }, index) => {
+          {data.map((content, index) => {
             const isActive = currentIndex === index;
             const buttonClass = clsx(
               "text-start flex items-start p-1 md:p-2 rounded-lg max-w-lg transition-colors duration-300",
@@ -58,9 +58,9 @@ function AgitateBlock({ data }: AgitateBlockProps) {
                 aria-selected={isActive ? "true" : "false"}
               >
                 <IconTextBlock
-                  content={{ title, description }}
-                  IconComponent={IconComponent}
-                  variant={isActive ? "secondary-highlight" : "secondary"}
+                  content={content}
+                  variant={isActive ? "solid" : "soft"}
+                  color='secondary'
                   className='vertical'
                 />
               </button>

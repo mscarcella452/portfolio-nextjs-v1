@@ -1,35 +1,36 @@
 import React from "react";
 import clsx from "clsx";
+import { UIColorVariantProps } from "@/config/types/UI";
 
-type ButtonProps = {
-  variant?: "primary" | "primary-outline" | "secondary" | "secondary-outline";
-  size?: "xs" | "sm" | "md" | "lg" | "xl";
-  type?: "button" | "submit" | "reset"; // For <button>
-  className?: string; // Custom class names
-  children: string; // Content inside the button
-  // children: React.ReactNode; // Content inside the button
+type ButtonProps = UIColorVariantProps & {
+  className?: string;
+  children: React.ReactNode;
   onClick?: () => void;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-function Button({
+const Button = ({
   variant,
+  color,
   size,
-  type = "button",
   onClick,
   className,
   children,
   ...rest
-}: ButtonProps) {
+}: ButtonProps) => {
   return (
     <button
-      className={clsx("btn", `${variant}-btn`, `btn-${size}`, className)}
+      className={clsx(
+        "btn",
+        `${color}-${variant}-variant`,
+        `btn-${size}`,
+        className
+      )}
       onClick={onClick}
-      type={type}
       {...rest}
     >
       {children}
     </button>
   );
-}
+};
 
 export default Button;

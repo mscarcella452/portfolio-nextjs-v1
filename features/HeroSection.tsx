@@ -6,12 +6,12 @@ import { MagnifyingGlassCircleIcon } from "@heroicons/react/24/outline";
 import { ComputerDesktopIcon } from "@heroicons/react/24/outline";
 
 {
-  /* <section className='bg-[#FCF8F1] bg-opacity-30 py-10 sm:py-16 lg:py-24'> */
+  /* <section className='bg-[#FCF8F1] bg-0topacity-30 py-10 sm:py-16 lg:py-24'> */
 }
 
 function HeroSection() {
   return (
-    <section className='bg-[white] xl:min-h-heroSection flex items-center justify-center '>
+    <section className='bg-background dark:bg-background-dark xl:min-h-heroSection flex items-center justify-center '>
       <div className='max-w-7xl gap-6 sm:gap-8 md:gap-10 xl:gap-14  grid grid-cols-1 lg:grid-cols-2 items-center'>
         <HeroCTA />
         <HeroImage />
@@ -67,11 +67,11 @@ const HeroCTA = () => {
         I build custom websites that look great, work fast, and are easy to use.
       </p>
 
-      <div className='flex gap-4 '>
-        <ButtonLink variant='primary' size='lg' href='/'>
+      <div className='inline-flex space-x-4 '>
+        <ButtonLink variant='solid' color='accent' size='lg' href='/'>
           Get Started
         </ButtonLink>
-        <ButtonLink variant='secondary' size='lg' href='/'>
+        <ButtonLink variant='soft' color='neutral' size='lg' href='/'>
           View My Work
         </ButtonLink>
       </div>

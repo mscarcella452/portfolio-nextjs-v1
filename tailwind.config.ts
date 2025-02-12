@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import { PluginAPI } from "tailwindcss/types/config";
 
 export default {
   content: [
@@ -8,6 +9,7 @@ export default {
     "./public/**/*.{html,js}", // if you have HTML or JS files in the public folder
     "./styles/**/*.css",
   ],
+
   darkMode: "selector", // Enables dark mode via the 'dark' class on the <html> element
   theme: {
     // screens: {
@@ -38,18 +40,18 @@ export default {
       },
       // Primary Color
       primary: {
-        light: "#4F46E5", // Light shade
-        DEFAULT: "#30638e", // Main primary color (blue)
-        // DEFAULT: "#3B82F6", // Main primary color (blue)
-        dark: "#1E3A8A", // Dark variant (deep blue)
+        light: "#5393bf", // Light shade
+        DEFAULT: "#30638e", // medium blue-teal
+        dark: "#234968", // Dark shade
+        contrast: "#f0f0f0", // Contrast text shade
       },
 
       // Secondary Color
       secondary: {
-        light: "#FACC15", // Light shade (yellow)
-        DEFAULT: "#d1495b", // Main secondary color (yellow)
-        // DEFAULT: "#F59E0B", // Main secondary color (yellow)
-        dark: "#B45309", // Dark variant (burnt orange)
+        light: "#e7828e", // Light shade
+        DEFAULT: "#d1495b", // reddish-pink
+        dark: "#a13345", // Dark shade
+        contrast: "#f0f0f0", // Contrast text shade
       },
 
       // Neutral Colors
@@ -57,40 +59,15 @@ export default {
         light: "#F3F4F6", // Light gray (used for background)
         DEFAULT: "#9CA3AF", // Medium gray (used for text or borders)
         dark: "#374151", // Dark gray (headings or accents)
+        contrast: "#f0f0f0", // Contrast text shade
       },
 
       // Accent Colors
       accent: {
-        light: "#D1FAE5", // Light green (success alerts)
-        DEFAULT: "#edae49", // Green (success messages/buttons)
-        dark: "#047857", // Dark green (for emphasis)
-      },
-      // Success Colors
-      success: {
-        light: "#D1FAE5", // Light green (success alerts)
-        DEFAULT: "#10B981", // Green (success messages/buttons)
-        dark: "#047857", // Dark green (for emphasis)
-      },
-
-      // Error Colors
-      error: {
-        light: "#FEE2E2", // Light red (error alerts)
-        DEFAULT: "#EF4444", // Red (error messages/buttons)
-        dark: "#B91C1C", // Dark red (emphasis)
-      },
-
-      // Warning Colors
-      warning: {
-        light: "#FEF3C7", // Light yellow (warning alerts)
-        DEFAULT: "#F59E0B", // Yellow (warning messages/buttons)
-        dark: "#B45309", // Dark yellow (for emphasis)
-      },
-
-      // Info Colors
-      info: {
-        light: "#DBEAFE", // Light blue (informational messages)
-        DEFAULT: "#3B82F6", // Blue (informational messages/links)
-        dark: "#1E3A8A", // Dark blue (for emphasis)
+        light: "#f3c878", // Light shade
+        DEFAULT: "#edae49", // Warm Mustard Yellow
+        dark: "#c98b3b", // Dark shade
+        contrast: "#f0f0f0", // Contrast text shade
       },
 
       // Background Colors
@@ -129,7 +106,16 @@ export default {
       // },
     },
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }: PluginAPI) {
+      addComponents({
+        ".primary-solid-variant": {
+          "@apply text-primary-contrast bg-primary hover:bg-primary-dark dark:bg-primary-dark hover:dark:bg-primary":
+            {},
+        },
+      });
+    },
+  ],
 } satisfies Config;
 
 // Color Palette Breakdown:

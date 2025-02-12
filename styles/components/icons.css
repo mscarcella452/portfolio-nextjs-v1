@@ -5,18 +5,6 @@
 .icon {
   @apply flex items-center p-1 rounded-md transition-colors duration-300;
 }
-.icon-primary {
-  @apply text-primary bg-neutral-light dark:text-primary-dark dark:bg-neutral-dark;
-}
-.icon-primary-highlight {
-  @apply text-white bg-primary dark:text-black dark:bg-primary-dark;
-}
-.icon-secondary {
-  @apply text-secondary bg-neutral-light dark:text-secondary-dark dark:bg-neutral-dark;
-}
-.icon-secondary-highlight {
-  @apply text-white bg-secondary dark:text-neutral-dark dark:bg-secondary-dark;
-}
 
 .icon-xs {
   @apply w-4 aspect-square;
