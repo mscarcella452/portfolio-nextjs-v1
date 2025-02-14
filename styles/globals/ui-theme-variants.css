@@ -1,0 +1,116 @@
+@tailwind utilities;
+
+@layer utilities {
+  .soft-theme {
+    @apply bg-opacity-10 dark:bg-opacity-30;
+  }
+  .soft-theme-hover {
+    @apply hover:bg-opacity-20 hover:dark:bg-opacity-20;
+  }
+  .outline-theme {
+    @apply border-2 border-solid;
+  }
+  .tertiary-theme {
+    @apply p-0;
+  }
+  /*------ primary-theme ------*/
+  .primary-solid {
+    @apply text-primary-contrast bg-primary;
+  }
+  .primary-solid-btn {
+    @apply primary-solid hover:bg-primary-dark;
+  }
+  .primary-soft {
+    @apply bg-primary text-primary soft-theme;
+  }
+  .primary-soft-btn {
+    @apply primary-soft bg-primary soft-theme-hover;
+  }
+  .primary-tertiary {
+    @apply tertiary-theme text-primary;
+  }
+  .primary-tertiary-btn {
+    @apply primary-tertiary hover:text-primary-dark;
+  }
+  .primary-outline {
+    @apply outline-theme text-primary border-primary;
+  }
+  .primary-outline-btn {
+    @apply primary-outline hover:text-primary-dark hover:border-primary-dark;
+  }
+  /*------ secondary-theme ------*/
+  .secondary-solid {
+    @apply text-secondary-contrast bg-secondary;
+  }
+  .secondary-solid-btn {
+    @apply secondary-solid hover:bg-secondary-dark;
+  }
+  .secondary-soft {
+    @apply bg-secondary text-secondary soft-theme;
+  }
+  .secondary-soft-btn {
+    @apply secondary-soft soft-theme-hover;
+  }
+  .secondary-tertiary {
+    @apply tertiary-theme text-secondary;
+  }
+  .secondary-tertiary-btn {
+    @apply secondary-tertiary hover:text-secondary-dark;
+  }
+  .secondary-outline {
+    @apply outline-theme text-secondary border-secondary;
+  }
+  .secondary-outline-btn {
+    @apply secondary-outline hover:text-secondary-dark hover:border-secondary-dark;
+  }
+  /*------ accent-theme ------*/
+  .accent-solid {
+    @apply text-accent-contrast bg-accent;
+  }
+  .accent-solid-btn {
+    @apply accent-solid hover:bg-accent-dark;
+  }
+  .accent-soft {
+    @apply bg-accent text-accent soft-theme;
+  }
+  .accent-soft-btn {
+    @apply accent-soft soft-theme-hover;
+  }
+  .accent-tertiary {
+    @apply tertiary-theme text-accent;
+  }
+  .accent-tertiary-btn {
+    @apply accent-tertiary hover:text-accent-dark;
+  }
+  .accent-outline {
+    @apply outline-theme text-accent border-accent;
+  }
+  .accent-outline-btn {
+    @apply accent-outline hover:text-accent-dark hover:border-accent-dark;
+  }
+  /*------ neutral-theme ------*/
+  .neutral-solid {
+    @apply text-neutral-contrast bg-neutral;
+  }
+  .neutral-solid-btn {
+    @apply neutral-solid hover:bg-neutral-dark;
+  }
+  .neutral-soft {
+    @apply bg-neutral text-neutral soft-theme;
+  }
+  .neutral-soft-btn {
+    @apply neutral-soft soft-theme-hover;
+  }
+  .neutral-tertiary {
+    @apply tertiary-theme text-neutral;
+  }
+  .neutral-tertiary-btn {
+    @apply neutral-tertiary hover:text-neutral-dark;
+  }
+  .neutral-outline {
+    @apply outline-theme text-neutral border-neutral;
+  }
+  .neutral-outline-btn {
+    @apply neutral-outline hover:text-neutral-dark hover:border-neutral-dark;
+  }
+}

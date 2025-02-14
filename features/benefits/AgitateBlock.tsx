@@ -30,19 +30,19 @@ function AgitateBlock({ data }: AgitateBlockProps) {
   );
 
   return (
-    <div className='container-xl grid lg:grid-cols-3 gap-24 md:gap-32 lg:gap-8 place-items-center'>
-      <div className='w-full space-y-16 md:space-y-24 lg:col-span-2'>
+    <div className='container-xl grid lg:grid-cols-2 gap-24 md:gap-32 lg:gap-8 items-center place-items-end'>
+      <div className='w-full space-y-16  lg:col-span-1'>
         <h3 className='text-h-4 font-secondary max-w-lg'>
           An underperforming website doesn’t just look bad—{" "}
           <span className='font-bold text-secondary dark:text-secondary-dark'>
             it can cost you.
           </span>
         </h3>
-        <div className='grid auto-rows-fr md:grid-cols-2 gap-6 md:gap-8'>
-          {data.map((content, index) => {
+        <div className='grid md:grid-cols-1 gap-6 md:gap-8'>
+          {data.map(({ title, description, icon }, index) => {
             const isActive = currentIndex === index;
             const buttonClass = clsx(
-              "text-start flex items-start p-1 md:p-2 rounded-lg max-w-lg transition-colors duration-300",
+              "text-start flex items-start p-1 md:p-2 rounded-lg max-w-lg transition-colors duration-300 ",
               {
                 "cursor-default pointer-events-none": isActive,
                 "hover:bg-neutral-light hover:dark:bg-neutral-dark": !isActive,
@@ -58,10 +58,12 @@ function AgitateBlock({ data }: AgitateBlockProps) {
                 aria-selected={isActive ? "true" : "false"}
               >
                 <IconTextBlock
-                  content={content}
-                  variant={isActive ? "solid" : "soft"}
-                  color='secondary'
-                  className='vertical'
+                  variant='orientation-vertical'
+                  icon={{
+                    className: "icon-lg",
+                    variant: isActive ? "secondary-solid" : "secondary-soft",
+                  }}
+                  content={{ title, description, icon }}
                 />
               </button>
             );
@@ -70,11 +72,11 @@ function AgitateBlock({ data }: AgitateBlockProps) {
       </div>
 
       <Image
-        className='order-first lg:order-last max-w-xs xl:max-w-full shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20'
+        className='order-first lg:order-last max-w-xs xl:max-w-lg dark:shadow-gray-900/20'
         src={data[currentIndex].image.src}
         alt={data[currentIndex].image.alt}
-        width={560}
-        height={720}
+        width={643}
+        height={712}
         data-testid='displayImage'
       />
     </div>

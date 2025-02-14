@@ -4,28 +4,36 @@ import "@styles/components/iconTextBlock.css";
 
 type IconTextBlockProps = {
   className?: string;
+  variant?: string;
+  icon: {
+    className?: string;
+    variant?: string;
+  };
   content: {
     title: string;
     description: string;
     icon: React.ReactNode;
   };
-} & React.ComponentProps<typeof Icon>; // Inherit types from Icon component
+};
 
 function IconTextBlock({
   content,
   variant,
-  color,
-  size,
   className,
+  icon,
 }: IconTextBlockProps) {
   return (
     <div
-      className={clsx("grid gap-5", className)}
+      className={clsx("grid gap-5", variant, className)}
       data-testid='div-wrapper'
       aria-labelledby='block-title'
       aria-describedby='block-description'
     >
-      <Icon variant={variant} color={color} size={size} aria-hidden='true'>
+      <Icon
+        variant={icon.variant}
+        className={icon.className}
+        aria-hidden='true'
+      >
         {content.icon}
       </Icon>
       <div>

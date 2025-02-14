@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-import { PluginAPI } from "tailwindcss/types/config";
+import plugin from "tailwindcss/plugin";
 
 export default {
   content: [
@@ -12,22 +12,6 @@ export default {
 
   darkMode: "selector", // Enables dark mode via the 'dark' class on the <html> element
   theme: {
-    // screens: {
-    //   sm: "480px",
-    //   md: "768px",
-    //   lg: "976px",
-    //   xl: "1440px",
-    // },
-    // fontSize: {
-    //   sm: "0.8rem",
-    //   base: "1rem",
-    //   xl: "1.25rem",
-    //   "2xl": "1.563rem",
-    //   "3xl": "1.953rem",
-    //   "4xl": "2.441rem",
-    //   "5xl": "3.052rem",
-    // },
-
     colors: {
       white: "#FFFFFF",
       black: "#3f3e3e",
@@ -74,7 +58,8 @@ export default {
       background: {
         light: "#F9FAFB", // Light background for sections
         DEFAULT: "#FFFFFF", // Default white background for cards/containers
-        dark: "#111827", // Dark background (dark mode)
+        dark: "#121212", // Dark background (dark mode)
+        // dark: "#111827", // Dark background (dark mode)
       },
     },
     extend: {
@@ -90,31 +75,22 @@ export default {
         heroSection: "calc(100vh - 60px)",
         navmenuHeight: "100vh",
       },
-      // container: {
-      //   center: true, // Centers the container by default
-      //   padding: "2rem", // Adds padding inside the container
-      //   screens: {
-      //     sm: "100%", // 100% width for small screens
-      //     md: "768px", // Medium screen max-width
-      //     lg: "1024px", // Large screen max-width
-      //     xl: "1280px", // Extra large screen max-width
-      //   },
-      //   'lg': {
-      //     padding: "3rem", // larger padding
-      //     maxWidth: "1024px", // maximum width for large screens
-      //   },
-      // },
     },
   },
   plugins: [
-    function ({ addComponents }: PluginAPI) {
-      addComponents({
-        ".primary-solid-variant": {
-          "@apply text-primary-contrast bg-primary hover:bg-primary-dark dark:bg-primary-dark hover:dark:bg-primary":
-            {},
-        },
-      });
-    },
+    plugin(function ({ addVariant }) {
+      // The 'light' and 'dark' classes are added to the <html> element
+      // based on the theme selected via the useThemeToggle hook in your application.
+      // The hook toggles between 'light' and 'dark' modes, and these classes are
+      // applied to the root element of the page (document.documentElement).
+      //
+      // When 'light' mode is active, the class 'light' will be on <html>,
+      // and any styles with the 'light:' prefix will be applied.
+      // When 'dark' mode is active, the class 'dark' will be on <html>,
+      // and any styles with the 'dark:' prefix will be applied.
+      addVariant("light", ".light &");
+      addVariant("dark", ".dark &");
+    }),
   ],
 } satisfies Config;
 

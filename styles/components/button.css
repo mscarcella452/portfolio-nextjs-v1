@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .btn {
-  @apply p-1 font-semibold rounded flex items-center justify-center transition-colors duration-300 font-secondary;
+  @apply font-primary font-semibold rounded flex items-center justify-center transition-colors duration-300;
 }
 
 .btn-xs {

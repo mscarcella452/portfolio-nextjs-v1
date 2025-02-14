@@ -92,7 +92,7 @@ type RoadMapCardsProps = {
 function RoadMapCard({ content, index, ...rest }: RoadMapCardsProps) {
   const { image, title, description } = content;
   return (
-    <div className='md:px-4 lg:px-10 md:max-w-lg' {...rest}>
+    <div className='md:px-4 lg:px-10 md:max-w-lg overflow-hidden' {...rest}>
       <Image
         className={clsx(
           "max-h-[400px] md:max-h-full object-contain",

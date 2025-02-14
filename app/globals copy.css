@@ -1,81 +1,39 @@
 /* app/styles/globals.css */
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Base Styles */
 @layer base {
   * {
-    @apply box-border p-0 m-0;
+    @apply box-border;
   }
 
+  .site-header {
+    @apply fixed top-0 left-0 right-0  h-navbarHeight p-4;
+  }
   section {
     @apply py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8;
-  }
-
-  :root {
-    --background: #ffffff;
-    --foreground: #171717;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --background: #0a0a0a;
-      --foreground: #ededed;
-    }
-  }
-
-  html,
-  body {
-    max-width: 100vw;
-    overflow-x: hidden;
-  }
-
-  body {
-    color: var(--foreground);
-    background: var(--background);
-    font-family: Arial, Helvetica, sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  @media (prefers-color-scheme: dark) {
-    html {
-      color-scheme: dark;
-    }
-  }
-}
-
-/* Component Styles */
-@layer components {
-  .site-header {
-    @apply fixed top-0 left-0 right-0 h-navbarHeight p-4;
   }
 
   .container-sm {
     @apply mx-auto max-w-4xl w-full;
   }
-
   .container-md {
     @apply mx-auto max-w-5xl w-full;
   }
-
   .container-lg {
     @apply mx-auto max-w-6xl w-full;
   }
-
   .container-xl {
     @apply mx-auto max-w-7xl w-full;
   }
 
   .section-container {
     @apply container-xl space-y-24 md:space-y-32;
+  }
+
+  .inherit-gap {
+    gap: inherit;
   }
 
   /* Heading Styles */
@@ -127,9 +85,45 @@
   }
 }
 
-/* Utilities */
-@layer utilities {
-  .inherit-gap {
-    gap: inherit;
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
   }
 }

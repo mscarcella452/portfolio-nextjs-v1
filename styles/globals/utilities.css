@@ -1,0 +1,145 @@
+@tailwind utilities;
+
+@layer utilities {
+  /*-------------- Spacing & Layout Utilities -------------- */
+  .inherit-gap {
+    gap: inherit;
+  }
+
+  .container-sm {
+    @apply mx-auto max-w-4xl w-full;
+  }
+
+  .container-md {
+    @apply mx-auto max-w-5xl w-full;
+  }
+
+  .container-lg {
+    @apply mx-auto max-w-6xl w-full;
+  }
+
+  .container-xl {
+    @apply mx-auto max-w-7xl w-full;
+  }
+
+  .section-container {
+    @apply container-xl space-y-24 md:space-y-32;
+  }
+
+  /*-------------- Typography Utilities -------------- */
+
+  /*------ headings ------*/
+  .text-h-1 {
+    @apply text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold font-secondary text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-2 {
+    @apply text-3xl sm:text-4xl lg:text-5xl leading-tight text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-3 {
+    @apply text-2xl sm:text-3xl lg:text-4xl text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-4 {
+    @apply text-xl sm:text-2xl lg:text-3xl text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-5 {
+    @apply text-lg sm:text-xl lg:text-2xl text-textColor dark:text-textColor-dark;
+  }
+
+  .text-h-6 {
+    @apply text-base sm:text-lg lg:text-xl text-textColor dark:text-textColor-dark;
+  }
+
+  /*------ paragraphs ------*/
+  .text-p {
+    @apply text-base sm:text-lg lg:text-base font-primary text-black;
+  }
+
+  .text-p-sm {
+    @apply text-sm sm:text-base lg:text-sm font-primary text-black;
+  }
+
+  .text-p-lg {
+    @apply text-lg sm:text-xl lg:text-lg font-primary text-black;
+  }
+
+  /*------ captions ------*/
+  .text-caption {
+    @apply text-sm sm:text-base font-medium font-primary text-black;
+  }
+
+  /*------ small text ------*/
+  .text-small {
+    @apply text-xs sm:text-sm font-primary text-black;
+  }
+
+  /*-------------- color Utilities -------------- */
+
+  /*------ solid ------*/
+  .primary-solid {
+    @apply text-primary-contrast bg-primary dark:bg-primary-dark;
+  }
+  .secondary-solid {
+    @apply text-secondary-contrast bg-secondary dark:bg-secondary-dark;
+  }
+  .accent-solid {
+    @apply text-accent-contrast bg-accent dark:bg-accent-dark;
+  }
+  .neutral-solid {
+    @apply text-neutral-contrast bg-neutral dark:bg-neutral-dark;
+  }
+
+  /*------ soft ------*/
+  .soft-variant {
+    @apply bg-opacity-10 hover:bg-opacity-25;
+  }
+
+  .primary-soft {
+    @apply soft-variant text-primary bg-primary-light dark:bg-primary-dark;
+  }
+  .secondary-soft {
+    @apply soft-variant text-secondary bg-secondary-light dark:bg-secondary-dark;
+  }
+  .accent-soft {
+    @apply soft-variant text-accent bg-accent-light dark:bg-accent-dark;
+  }
+  .neutral-soft {
+    @apply soft-variant text-neutral bg-neutral-light dark:bg-neutral-dark;
+  }
+
+  /*------ tertiary ------*/
+
+  .primary-tertiary {
+    @apply text-primary dark:text-primary-dark;
+  }
+  .secondary-tertiary {
+    @apply text-secondary dark:text-secondary-dark;
+  }
+  .accent-tertiary {
+    @apply text-accent dark:text-accent-dark;
+  }
+  .neutral-tertiary {
+    @apply text-neutral dark:text-neutral-dark;
+  }
+
+  /*------ outline ------*/
+  .outline-variant {
+    @apply border-2 border-solid;
+  }
+
+  .primary-outline {
+    @apply primary-tertiary outline-variant border-primary dark:border-primary-dark;
+  }
+  .secondary-outline {
+    @apply secondary-tertiary outline-variant border-secondary dark:border-secondary-dark;
+  }
+  .accent-outline {
+    @apply accent-tertiary outline-variant border-accent dark:border-accent-dark;
+  }
+  .neutral-outline {
+    @apply neutral-tertiary outline-variant border-neutral dark:border-neutral-dark;
+  }
+}

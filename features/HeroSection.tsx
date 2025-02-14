@@ -67,11 +67,12 @@ const HeroCTA = () => {
         I build custom websites that look great, work fast, and are easy to use.
       </p>
 
-      <div className='inline-flex space-x-4 '>
-        <ButtonLink variant='solid' color='accent' size='lg' href='/'>
+      <div className='inline-flex space-x-4'>
+        <ButtonLink className='btn-lg' variant='accent-solid-btn' href='/'>
           Get Started
         </ButtonLink>
-        <ButtonLink variant='soft' color='neutral' size='lg' href='/'>
+
+        <ButtonLink className='btn-lg' variant='neutral-soft-btn' href='/'>
           View My Work
         </ButtonLink>
       </div>

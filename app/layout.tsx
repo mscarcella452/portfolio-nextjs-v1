@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato, Montserrat, Archivo, League_Spartan } from "next/font/google";
-import "./globals.css";
+import "@styles/globals/globals.css";
+// import "./globals.css";
 import Header from "@/components/header/Header";
 import Footer from "@/components/footer/Footer";
 

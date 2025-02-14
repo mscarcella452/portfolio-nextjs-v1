@@ -1,0 +1,8 @@
+@import "@/styles/globals/base.css";
+@import "@/styles/globals/components.css";
+@import "@/styles/globals/ui-theme-variants.css";
+@import "@/styles/globals/utilities.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,34 +1,45 @@
 import React from "react";
 import clsx from "clsx";
-import { UIColorVariantProps } from "@/config/types/UI";
+import "@styles/components/button.css";
+import { UIButtonProps } from "@/config/types/UI";
+import Icon from "./Icon";
 
-type ButtonProps = UIColorVariantProps & {
-  className?: string;
+type ButtonProps = UIButtonProps & {
   children: React.ReactNode;
   onClick?: () => void;
 } & React.ButtonHTMLAttributes<HTMLButtonElement>;
 
 const Button = ({
-  variant,
-  color,
-  size,
-  onClick,
   className,
+  onClick,
+  variant,
+  icon,
   children,
   ...rest
 }: ButtonProps) => {
+  const renderIcon = (iconType: "startIcon" | "endIcon") => {
+    return (
+      <Icon className={icon?.className} variant={icon?.variant}>
+        {icon?.[iconType]}
+      </Icon>
+    );
+  };
   return (
     <button
       className={clsx(
-        "btn",
-        `${color}-${variant}-variant`,
-        `btn-${size}`,
+        "btn group",
+        variant,
+        { "gap-1": icon?.startIcon || icon?.endIcon },
         className
       )}
       onClick={onClick}
       {...rest}
     >
+      {icon?.startIcon && renderIcon("startIcon")}
+
       {children}
+
+      {icon?.endIcon && renderIcon("endIcon")}
     </button>
   );
 };

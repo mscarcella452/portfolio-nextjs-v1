@@ -24,3 +24,37 @@
 .icon-xxl {
   @apply icon-xl lg:w-20 aspect-square;
 }
+.btn-icon-xs {
+  @apply w-2 aspect-square;
+}
+.btn-icon-sm {
+  @apply w-4 aspect-square;
+}
+.btn-icon-md {
+  @apply w-6 aspect-square;
+}
+.btn-icon-lg {
+  @apply icon-md lg:w-8 aspect-square;
+}
+.btn-icon-xl {
+  @apply icon-lg lg:w-10 aspect-square;
+}
+.btn-icon-xxl {
+  @apply icon-xl lg:w-16 aspect-square;
+}
+
+.icon-transition-translate-left {
+  @apply transition-transform group-hover:-translate-x-1;
+}
+
+.icon-transition-translate-right {
+  @apply transition-transform group-hover:translate-x-1;
+}
+
+.icon-transition-opacity {
+  @apply transition-opacity group-hover:opacity-50;
+}
+
+.icon-transition-rotate {
+  @apply transition-transform group-hover:rotate-180;
+}

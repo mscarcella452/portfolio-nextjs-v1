@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-.vertical {
+.orientation-vertical {
   @apply grid-cols-[auto_1fr];
 }
 
-.horizontal {
-  @apply text-center grid-rows-[auto_1fr] w-full h-full   justify-items-center items-start;
+.orientation-horizontal {
+  @apply text-center grid-rows-[auto_1fr] w-full h-full justify-items-center items-start;
 }
-.horizontal-md {
-  @apply md:text-center grid-cols-[auto_1fr] md:grid-cols-[1fr] md:grid-rows-[auto_1fr] w-full h-full   md:justify-items-center md:items-start;
+.orientation-horizontal-md {
+  @apply grid-cols-[auto_1fr] md:text-center md:grid-cols-[1fr] md:grid-rows-[auto_1fr] w-full h-full   md:justify-items-center md:items-start;
 }
